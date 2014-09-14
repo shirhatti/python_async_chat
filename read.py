@@ -17,10 +17,10 @@ class ChatClient(asynchat.async_chat):
  
     def found_terminator(self):
         msg = b''.join(self.buffer)
-        print 'Received:', msg
+        print ('Received:', msg)
         self.buffer = []
  
 client = ChatClient('beta.shirhatti.com', 5051)
  
-print 'Listening on localhost:5051'
+print ('Listening on localhost:5051')
 asyncore.loop()
