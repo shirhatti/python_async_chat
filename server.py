@@ -39,6 +39,5 @@ class ChatServer(asyncore.dispatcher):
             handler = ChatHandler(sock)
  
 server = ChatServer('0.0.0.0', 5051)
- 
 print ('Serving on 0.0.0.0:5051')
 asyncore.loop(map=chat_room)

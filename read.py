@@ -22,5 +22,5 @@ class ChatClient(asynchat.async_chat):
  
 client = ChatClient('beta.shirhatti.com', 5051)
  
-print ('Listening on localhost:5051')
+print ('Listening on beta.shirhatti.com:5051')
 asyncore.loop()
