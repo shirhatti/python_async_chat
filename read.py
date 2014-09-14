@@ -9,7 +9,7 @@ class ChatClient(asynchat.async_chat):
         self.create_socket(socket.AF_INET, socket.SOCK_STREAM)
         self.connect((host, port))
  
-        self.set_terminator(b'\n')
+        self.set_terminator(b'\0')
         self.buffer = []
  
     def collect_incoming_data(self, data):

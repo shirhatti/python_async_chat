@@ -8,7 +8,7 @@ class ChatHandler(asynchat.async_chat):
     def __init__(self, sock):
         asynchat.async_chat.__init__(self, sock=sock, map=chat_room)
  
-        self.set_terminator(b'\n')
+        self.set_terminator(b'\0')
         self.buffer = []
  
     def collect_incoming_data(self, data):
@@ -21,7 +21,7 @@ class ChatHandler(asynchat.async_chat):
         print ('Received: %s', msg)
         for handler in chat_room.values():
             if hasattr(handler, 'push'):
-                handler.push(msg + b'\n')
+                handler.push(msg + b'\0')
         self.buffer = []
  
 class ChatServer(asyncore.dispatcher):
